@@ -17,6 +17,8 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->string('lottery_title');
             $table->boolean('public_private_info');
+            $table->string('lottery_day');
+            $table->integer('group_id');
             $table->timestamps();
         });
     }

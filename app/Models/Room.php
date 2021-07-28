@@ -9,5 +9,5 @@ class Room extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['lottery_title', 'public_private_info']; //許可
+    protected $fillable = ['lottery_title', 'public_private_info', 'lottery_day', 'group_id']; //許可
 }

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\RoomCustomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,5 @@ use App\Http\Controllers\GroupController;
 
 Route::apiResource('/room', RoomController::class);
 Route::apiResource('/group', GroupController::class);
+
+Route::get('/roomCustom', [RoomCustomController::class, 'WhereGroup_id']);

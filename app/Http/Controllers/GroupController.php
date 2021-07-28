@@ -45,8 +45,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //firebase_idで検索 指定のグループのレコードを返す
-        info($group);
+        //グループを検索
         $item = Group::find($group);
         if ($item) {
             return response()->json([

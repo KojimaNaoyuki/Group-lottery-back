@@ -14,7 +14,12 @@ class RoomController extends Controller
      */
     public function index()
     {
-        //
+        //全件取得
+        $items = Room::all();
+
+        return response()->json([
+            'data' => $items
+        ], 200);
     }
 
     /**
@@ -52,7 +57,19 @@ class RoomController extends Controller
      */
     public function update(Request $request, Room $room)
     {
-        //
+        $update = [
+            'public_private_info' => $request->public_private_info
+        ];
+        $item = Room::where('id', $room->id)->update($update);
+        if ($item) {
+            return response()->json([
+                'message' => 'Updated successfully',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found',
+            ], 404);
+        }
     }
 
     /**
