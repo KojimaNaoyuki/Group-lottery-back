@@ -17,6 +17,8 @@ class CreateRoomsMembersTable extends Migration
             $table->id();
             $table->string('member_name');
             $table->integer('school_year');
+            $table->string('status');
+            $table->integer('group_judg');
             $table->integer('room_id');
             $table->timestamps();
         });
