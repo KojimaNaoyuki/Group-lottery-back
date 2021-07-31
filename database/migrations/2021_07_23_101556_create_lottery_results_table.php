@@ -15,7 +15,7 @@ class CreateLotteryResultsTable extends Migration
     {
         Schema::create('lottery_results', function (Blueprint $table) {
             $table->id();
-            $table->string('member_name');
+            $table->string('leader_name');
             $table->integer('order');
             $table->integer('room_id');
             $table->timestamps();

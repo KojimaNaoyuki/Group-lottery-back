@@ -25,3 +25,4 @@ Route::apiResource('/roomMember', RoomsMemberController::class);
 
 Route::get('/roomCustom', [RoomCustomController::class, 'WhereGroup_id']);
 Route::get('/roomMemberGetMaxId', [RoomsMemberCustomController::class, 'getMaxId']);
+Route::get('/roomMemberWhereRoomId', [RoomsMemberCustomController::class, 'whereRoom_id']);

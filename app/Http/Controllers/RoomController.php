@@ -89,6 +89,15 @@ class RoomController extends Controller
      */
     public function destroy(Room $room)
     {
-        //
+        $item = Room::where('id', $room->id)->delete();
+        if ($item) {
+            return response()->json([
+                'message' => 'Deleted successfully',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found',
+            ], 404);
+        }
     }
 }
