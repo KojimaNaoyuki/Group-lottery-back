@@ -7,6 +7,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\RoomCustomController;
 use App\Http\Controllers\RoomsMemberController;
 use App\Http\Controllers\RoomsMemberCustomController;
+use App\Http\Controllers\LotteryResultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ use App\Http\Controllers\RoomsMemberCustomController;
 Route::apiResource('/room', RoomController::class);
 Route::apiResource('/group', GroupController::class);
 Route::apiResource('/roomMember', RoomsMemberController::class);
+Route::apiResource('/lotteryResult', LotteryResultController::class);
 
 Route::get('/roomCustom', [RoomCustomController::class, 'WhereGroup_id']);
 Route::get('/roomMemberGetMaxId', [RoomsMemberCustomController::class, 'getMaxId']);

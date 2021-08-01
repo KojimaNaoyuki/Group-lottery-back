@@ -45,7 +45,7 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        $item = Room::find($room);
+        $item = Room::where('id', $room->id)->get();
         if ($item) {
             return response()->json([
                 'data' => $item
