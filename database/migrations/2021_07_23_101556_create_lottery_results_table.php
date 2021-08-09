@@ -17,6 +17,7 @@ class CreateLotteryResultsTable extends Migration
             $table->id();
             $table->string('leader_name');
             $table->integer('order');
+            $table->integer('group_id');
             $table->integer('room_id');
             $table->timestamps();
         });

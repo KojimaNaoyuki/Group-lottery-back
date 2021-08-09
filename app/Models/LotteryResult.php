@@ -9,5 +9,5 @@ class LotteryResult extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['leader_name', 'order', 'room_id']; //許可
+    protected $fillable = ['leader_name', 'order', 'group_id', 'room_id']; //許可
 }

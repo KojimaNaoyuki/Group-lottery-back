@@ -22,10 +22,40 @@ class RoomsMemberCustomController extends Controller
             ], 200);
         }
     }
-    public function Getmemmber(Request $request)
+    public function getMemmber(Request $request)
     {
         //ルームidで検索
         $item = RoomsMember::where('group_id', $request->group_id)->where('room_id', $request->room_id)->get();
+
+        if ($item) {
+            return response()->json([
+                'data' => $item
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found',
+            ], 404);
+        }
+    }
+    public function getMemmberWhereJudg(Request $request)
+    {
+        //代表者IDで検索
+        $item = RoomsMember::where('group_id', $request->group_id)->where('room_id', $request->room_id)->where('group_judg', $request->group_judg)->get();
+
+        if ($item) {
+            return response()->json([
+                'data' => $item
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found',
+            ], 404);
+        }
+    }
+    public function getLeaderId(Request $request)
+    {
+        //代表者IDを取得
+        $item = RoomsMember::where('group_id', $request->group_id)->where('room_id', $request->room_id)->where('member_name', $request->member_name)->get();
 
         if ($item) {
             return response()->json([

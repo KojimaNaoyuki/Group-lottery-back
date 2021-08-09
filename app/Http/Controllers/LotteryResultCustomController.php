@@ -7,9 +7,10 @@ use App\Models\LotteryResult;
 
 class LotteryResultCustomController extends Controller
 {
-    public function whereRoom_id(Request $request)
+    public function getLotteryResultMember(Request $request)
     {
-        $item = LotteryResult::where('room_id', $request->room_id)->get();
+        $item = LotteryResult::where('group_id', $request->group_id)->where('room_id', $request->room_id)->get();
+
         if ($item) {
             return response()->json([
                 'data' => $item

@@ -28,6 +28,8 @@ Route::apiResource('/lotteryResult', LotteryResultController::class);
 
 Route::get('/roomCustom', [RoomCustomController::class, 'WhereGroup_id']);
 Route::get('/roomMemberGetMaxId', [RoomsMemberCustomController::class, 'getMaxId']);
-Route::get('/roomMemberGetmemmber', [RoomsMemberCustomController::class, 'Getmemmber']);
+Route::get('/roomMemberGetmemmber', [RoomsMemberCustomController::class, 'getMemmber']);
 Route::get('/roomMemberValidationName', [RoomsMemberCustomController::class, 'ValidationName']);
-Route::get('/LotteryResultWhereRoomId', [LotteryResultCustomController::class, 'whereRoom_id']);
+Route::get('/getMemmberWhereJudg', [RoomsMemberCustomController::class, 'getMemmberWhereJudg']);
+Route::get('/roomMemberGetLeaderId', [RoomsMemberCustomController::class, 'getLeaderId']);
+Route::get('/LotteryResultGetLotteryResultMember', [LotteryResultCustomController::class, 'getLotteryResultMember']);
