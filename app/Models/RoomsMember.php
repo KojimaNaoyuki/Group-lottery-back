@@ -9,5 +9,5 @@ class RoomsMember extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['member_name', 'school_year', 'status', 'group_judg', 'room_id']; //許可
+    protected $fillable = ['member_name', 'school_year', 'status', 'group_judg', 'group_id', 'room_id']; //許可
 }

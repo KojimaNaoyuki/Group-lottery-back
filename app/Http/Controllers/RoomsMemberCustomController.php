@@ -22,14 +22,33 @@ class RoomsMemberCustomController extends Controller
             ], 200);
         }
     }
-    public function whereRoom_id(Request $request)
+    public function Getmemmber(Request $request)
     {
         //ルームidで検索
-        $item = RoomsMember::where('room_id', $request->room_id)->get();
+        $item = RoomsMember::where('group_id', $request->group_id)->where('room_id', $request->room_id)->get();
 
         if ($item) {
             return response()->json([
                 'data' => $item
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found',
+            ], 404);
+        }
+    }
+    public function ValidationName(Request $request)
+    {
+        //DB登録済み名チェック(同じ名前登録されていないか)
+        $item = RoomsMember::where('member_name', $request->member_name)->where('group_id', $request->group_id)->where('room_id', $request->room_id)->get();
+
+        if (count($item) == 0) {
+            return response()->json([
+                'data' => 'true',
+            ], 200);
+        } else if ($item) {
+            return response()->json([
+                'data' => 'false'
             ], 200);
         } else {
             return response()->json([
