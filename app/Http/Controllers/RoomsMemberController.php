@@ -56,7 +56,23 @@ class RoomsMemberController extends Controller
      */
     public function update(Request $request, RoomsMember $roomsMember)
     {
-        //
+        //del_flagを更新する
+        $update = [
+            'del_flag' => $request->del_flag
+        ];
+        info($roomsMember->id);
+
+        $item = RoomsMember::where('id', $request->id)->update($update);
+
+        if ($item) {
+            return response()->json([
+                'message' => 'Updated successfully',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found',
+            ], 404);
+        }
     }
 
     /**

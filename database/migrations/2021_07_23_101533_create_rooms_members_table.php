@@ -21,6 +21,7 @@ class CreateRoomsMembersTable extends Migration
             $table->integer('group_judg');
             $table->integer('group_id');
             $table->integer('room_id');
+            $table->integer('del_flag');
             $table->timestamps();
         });
     }
