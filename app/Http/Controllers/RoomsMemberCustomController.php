@@ -25,11 +25,21 @@ class RoomsMemberCustomController extends Controller
     public function getMemmber(Request $request)
     {
         //ルームidで検索
-        $item = RoomsMember::where('group_id', $request->group_id)->where('room_id', $request->room_id)->get();
+        $items = RoomsMember::where('group_id', $request->group_id)->where('room_id', $request->room_id)->get();
 
-        if ($item) {
+        //代表者ごとメンバー人数取得
+        $memberNumArr = [];
+        foreach ($items as $item) {
+            if ($item['id'] == $item['group_judg'] && !$item['del_flag']) {
+                $memberNum = RoomsMember::where('group_id', $request->group_id)->where('room_id', $request->room_id)->where('group_judg', $item['id'])->get();
+                $memberNumArr[$item['member_name']] = array('member_num' => count($memberNum));
+            }
+        }
+
+        if ($items) {
             return response()->json([
-                'data' => $item
+                'data' => $items,
+                'memberNum' => $memberNumArr
             ], 200);
         } else {
             return response()->json([
